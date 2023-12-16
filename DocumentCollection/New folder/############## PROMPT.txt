@@ -1,0 +1,48 @@
+act as a professional java programming with excellent use of multithreading and synchronization mechanisms. generate a fully functional code to handle the following problem:
+Word Statistics:
+Main thread identifies text files in directory and its subdirectory.
+Each thread should work on exactly one text files. i.e. There must be 10 different threads for 10 different files.
+Integrate a GUI with the following:
+Input:
+Directory path (or selection via browse button)
+Checkbox for including subdirectories
+Output:
+In table form with 7 columns that have the following titles:
+Files: Filename with extension only.
+Thread ID: ID of the thread working on the file at hand. i.e. 0x3814
+#words: word count per file.
+#is: "is" count per file.
+#are: "are" count per file.
+#you: "you" count per file.
+Longest: Longest word per directories.
+Shortest: Shortest word per directories.
+
+Each thread should send updates to GUI.
+
+Thread ID:
+The hexadecimal number that identifies the thread processing the file. i.e. 0x3814
+Files:
+Provide only the file name with its extension.
+Reading File Content:
+Open and read the content of the text file.
+Tokenization:
+Break down the content into individual words. This may involve removing punctuation, handling whitespace, and considering special cases.
+Word Counting:
+Count the total number of words in the file.
+"is" Word Counting:
+Identify the number of occurrences of the word "is" by comparing the string "is" to all the words in the file being processed.
+"are" Word Counting:
+Identify the number of occurrences of the word "are" by comparing the string "are" to all the words in the file being processed.
+"you" Word Counting:
+Identify the number of occurrences of the word "you" by comparing the string "you" to all the words in the file being processed.
+Longest Word Detection:
+Identify the longest word by comparing the lengths of all words.
+Shortest Word Detection:
+Identify the shortest word by comparing the lengths of all words.
+Longest Overall Word Detection:
+Identify the longest overall word by comparing the lengths of longest word in each file.
+Shortest Overall Word Detection:
+Identify the shortest overall word by comparing the lengths of shortest word in each file.
+Update GUI:
+Send the computed statistics (word count, is count, are count, you count, longest word, shortest word) back to the main GUI thread to update the display.
+Send (Longest Overall Word, Shortest Overall Word) with those labels back to the main GUI thread to update the display.
