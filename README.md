@@ -40,13 +40,13 @@ The Word Statistics GUI employs a graphical user interface (GUI) built using Jav
         - **#is:** "is" count per file.
         - **#are:** "are" count per file.
         - **#you:** "you" count per file.
-        - **Longest:** Longest word per directories.
-        - **Shortest:** Shortest word per directories.
+        - **Longest:** Longest word per each directory.
+        - **Shortest:** Shortest word per each directory.
 - Identify the longest overall word.
 - Identify the shortest overall word.
 - Each thread should send updates to GUI:
     - Send the computed statistics (word count, is count, are count, you count, longest word, shortest word) back to the main GUI thread to update the display.
-    - Send (Longest Overall Word, Shortest Overall Word) with those labels back to the main GUI thread to update the displayز
+    - Send (Longest Overall Word, Shortest Overall Word) with those labels back to the main GUI thread to update the display.
 
 ## Project Structure<a name="project-structure"></a>
 
@@ -83,6 +83,32 @@ The Word Statistics GUI employs a graphical user interface (GUI) built using Jav
 ## Multithreading<a name="multithreading"></a>
 
 The Word Statistics GUI utilizes multithreading to process multiple files concurrently, enhancing the program's efficiency. The `ExecutorService` is employed to manage a thread pool, allowing the application to submit tasks for each file. This asynchronous approach ensures responsive user interactions while efficiently utilizing system resources.
+
+In the given code, there is a potential race condition related to the updates of the `overallLongestWord` and `overallShortestWord` variables, which represent the longest and shortest words found across all processed files. The race condition occurs when multiple threads simultaneously update these variables.
+
+### Race Condition:
+The `updateOverallWordStatistics` method is responsible for updating the overall longest and shortest words. Without proper synchronization, if multiple threads execute this method concurrently, it may lead to incorrect results, as one thread may read and update the variables while another thread is in the process of doing the same.
+
+### Handling the Race Condition:
+To address the race condition, the code uses synchronization with the `lock` object. The critical section is enclosed in a synchronized block:
+
+```java
+synchronized (lock) {
+    if (localLongestWord.length() > overallLongestWord.length()) {
+        overallLongestWord = localLongestWord;
+    }
+    if (overallShortestWord.isEmpty() || localShortestWord.length() < overallShortestWord.length()) {
+        overallShortestWord = localShortestWord;
+    }
+}
+```
+
+This ensures that only one thread at a time can execute this critical section, preventing simultaneous updates and maintaining the integrity of the shared variables.
+
+### Without Synchronization or Locks:
+Without synchronization or locks, simultaneous updates from multiple threads could lead to data corruption or inconsistent results. For example, one thread might read `overallLongestWord` while another is in the process of updating it, leading to incorrect comparisons and potentially incorrect values being stored.
+
+In summary, the synchronization with the `lock` object ensures that updates to shared variables (`overallLongestWord` and `overallShortestWord`) are atomic and mutually exclusive, preventing race conditions and ensuring the correct computation of overall word statistics in a multithreaded environment.
 
 ## Conclusion<a name="conclusion"></a>
 
