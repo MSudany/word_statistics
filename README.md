@@ -1,4 +1,4 @@
-# Word Statistics GUI - Documentation for Computer Science Students
+# Word Statistics GUI - Documentation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -16,7 +16,7 @@
 
 ## Introduction<a name="introduction"></a>
 
-Welcome to the documentation for the Word Statistics GUI, a Java application designed for analyzing text files within a specified directory. This documentation aims to help computer science students understand the structure, functionality, and key components of the program.
+Welcome to the documentation for the Word Statistics GUI, a Java application designed for analyzing text files within a specified directory. This documentation aims to help users understand the structure, functionality, and key components of the program.
 
 ## Overview<a name="overview"></a>
 
