@@ -112,4 +112,4 @@ In summary, the synchronization with the `lock` object ensures that updates to s
 
 ## Conclusion<a name="conclusion"></a>
 
-This Word Statistics GUI project provides a comprehensive example of a Java application with a graphical user interface and multithreading capabilities. By exploring the code, computer science students can gain insights into GUI development, event handling, file processing, and the effective use of multithreading for improved performance. The project encourages hands-on exploration and experimentation, making it an ideal learning resource for students interested in Java programming and GUI development.
+This Word Statistics GUI project provides a comprehensive example of a Java application with a graphical user interface and multithreading capabilities. By exploring the code, users can gain insights into GUI development, event handling, file processing, and the effective use of multithreading for improved performance.
