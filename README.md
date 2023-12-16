@@ -34,15 +34,14 @@ The Word Statistics GUI employs a graphical user interface (GUI) built using Jav
         - Directory path (or selection via browse button)
         - Checkbox for including sub-directories.
     - **Output:**
-        - Table form with 7 columns:
-            - **Files:** Filename with extension only.
-            - **Thread ID:** ID of the thread working on the file at hand. i.e. 45.
-            - **#words:** word count per file.
-            - **#is:** "is" count per file.
-            - **#are:** "are" count per file.
-            - **#you:** "you" count per file.
-            - **Longest:** Longest word per directories.
-            - **Shortest:** Shortest word per directories.
+        - **Files:** Filename with extension only.
+        - **Thread ID:** ID of the thread working on the file at hand. i.e. 45.
+        - **#words:** word count per file.
+        - **#is:** "is" count per file.
+        - **#are:** "are" count per file.
+        - **#you:** "you" count per file.
+        - **Longest:** Longest word per directories.
+        - **Shortest:** Shortest word per directories.
 - Identify the longest overall word.
 - Identify the shortest overall word.
 - Each thread should send updates to GUI:
