@@ -37,13 +37,19 @@ public class WordStatisticsGUI extends JFrame {
     private String overallLongestWord;
     private String overallShortestWord;
 
+    /**
+     * Constructs a WordStatisticsGUI instance. Initializes the GUI components,
+     * including buttons, text fields, and tables, and sets up the layout.
+     */
     public WordStatisticsGUI() {
         this.overallShortestWord = "";
         this.overallLongestWord = "";
         this.lock = new Object();
         initUI();
     }
-
+    /**
+     * Initializes the user interface components, including labels, buttons, and tables.
+     */
     private void initUI() {
         setTitle("Word Statistics");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,7 +129,11 @@ public class WordStatisticsGUI extends JFrame {
         });
     }
 
-
+    /**
+     * Inner class representing a file processor that implements the Runnable interface.
+     * Each instance of this class is responsible for processing the content of a single file.
+     * It calculates word statistics and updates the overall statistics and Swing components.
+     */
     private class FileProcessor implements Runnable {
         private Path filePath;
 
@@ -152,7 +162,9 @@ public class WordStatisticsGUI extends JFrame {
             }
         }
     }
-
+    /**
+     * Displays a file chooser dialog to select a directory when the "Browse" button is clicked.
+     */
     private void browseButtonClicked() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -163,7 +175,12 @@ public class WordStatisticsGUI extends JFrame {
             directoryField.setText(selectedDirectory.getAbsolutePath());
         }
     }
-
+    
+    /**
+     * Initiates the file processing when the "Start Processing" button is clicked.
+     * It walks through the selected directory, submits file processing tasks to the
+     * executor service, and updates the GUI components.
+     */
     private void processButtonClicked() {
         String directoryPath = directoryField.getText();
         if (directoryPath.isEmpty()) {
@@ -192,7 +209,19 @@ public class WordStatisticsGUI extends JFrame {
             showErrorDialog("Error reading file: " + e.getMessage());
         }
     }
-
+    /**
+     * Reads the content of a file and returns it as a string.
+     *
+     * @param filePath The path of the file to read.
+     * @return The content of the file as a string.
+     * @throws IOException If an I/O error occurs during file reading.
+     *//**
+     * Reads the content of a file and returns it as a string.
+     *
+     * @param filePath The path of the file to read.
+     * @return The content of the file as a string.
+     * @throws IOException If an I/O error occurs during file reading.
+     */
     private String readContentFromFile(Path filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath.toFile()))) {
             StringBuilder contentBuilder = new StringBuilder();
@@ -261,7 +290,12 @@ public class WordStatisticsGUI extends JFrame {
             overallShortestLabel.setText("Shortest Overall Word: " + overallShortestWord);
         });
     }
-
+    
+    /**
+     * Main method to launch the WordStatisticsGUI application.
+     *
+     * @param args The command-line arguments (ignored).
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             WordStatisticsGUI wordStatisticsGUI = new WordStatisticsGUI();
