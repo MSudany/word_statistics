@@ -58,15 +58,24 @@ The `main()` method serves as the entry point for the application. It launches t
 
 ## Usage<a name="Usage"></a>
 
-1. Run the program.
+### 1. Run the program.
+   
    ![image](https://github.com/MSudany/word_statistics/assets/93383768/25c5b332-ca40-422e-8701-562edb48a714)
-2. Enter the directory path.
+
+### 2. Enter the directory path.
+
    ![image](https://github.com/MSudany/word_statistics/assets/93383768/3fc97d4b-7364-4586-8b7b-0d65fc6e6b41)
-3. Optionally, check the "Include Subdirectories" checkbox.
+
+### 3. Optionally, check the "Include Subdirectories" checkbox.
+
    ![image](https://github.com/MSudany/word_statistics/assets/93383768/051c9e50-ce40-4342-a476-9fa3f88b5441)
-4. Click "Start Processing" to analyze files in the specified directory.
+
+### 4. Click "Start Processing" to analyze files in the specified directory.
+
    ![image](https://github.com/MSudany/word_statistics/assets/93383768/c26e0791-239f-407b-b884-29e0e7bc6048)
-5. View the word statistics in the table, including the overall longest and shortest words.
+
+### 5. View the word statistics in the table, including the overall longest and shortest words.
+
    ![image](https://github.com/MSudany/word_statistics/assets/93383768/7da97161-f281-4ec3-ba98-a7736433494d)
 
-Note: Ensure that the Java Runtime Environment (JRE) is installed to execute the program successfully.
+## Note: Ensure that the Java Runtime Environment (JRE) is installed to execute the program successfully.
